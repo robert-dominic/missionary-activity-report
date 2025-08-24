@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function ActivityTable({ rows, onChange }) {
+export default function ActivityTable({ rows, onChange}) {
   const handleChange = (index, e) => {
     const { name, value } = e.target;
     onChange(index, name, value);

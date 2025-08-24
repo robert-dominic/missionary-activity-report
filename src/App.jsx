@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Header from "./components/Header";
 import ActivityTable from "./components/ActivityTable";
+import Footer from "./components/Footer";
 
 export default function App() {
   // Header state
@@ -31,18 +32,38 @@ export default function App() {
     },
   ]);
 
+  // Footer state
+  const [footerData, setFooterData] = useState({
+    total: "",
+    publicLecturesGiven: "",
+    soulsStudiedWith: "",
+    signature: "",
+    percentTravel: "",
+    podos: "",
+    available1: "",
+    sick: "",
+    available2: "",
+    vacation: "",
+    available3: "",
+  });
+
   // Update header
   const handleHeaderChange = (name, value) => {
     setHeaderData((prev) => ({ ...prev, [name]: value }));
   };
 
-  // Update row
+  // Update table rows
   const handleRowChange = (index, name, value) => {
     setRows((prev) => {
       const updated = [...prev];
       updated[index][name] = value;
       return updated;
     });
+  };
+
+  // Update footer
+  const handleFooterChange = (name, value) => {
+    setFooterData((prev) => ({ ...prev, [name]: value }));
   };
 
   // Totals calculation
@@ -60,6 +81,7 @@ export default function App() {
     <div className="p-6 space-y-6">
       <Header data={headerData} onChange={handleHeaderChange} />
       <ActivityTable rows={rows} onChange={handleRowChange} totals={totals} />
+      <Footer data={footerData} onChange={handleFooterChange} totals={totals} />
     </div>
   );
 }

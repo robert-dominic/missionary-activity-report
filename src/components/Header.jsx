@@ -7,17 +7,16 @@ export default function Header({ data, onChange }) {
   };
 
   return (
-    <div className="flex flex-col gap-2 p-4 border border-black text-xs font-serif bg-[#660066]">
-      {/* Top Section (Missionary Report, IMS, Year) - This remains the same */}
+    <div className="flex flex-col gap-2 p-4 pb-0 text-sm border border-none font-poppins">
       <div className="flex justify-between items-start">
-        <div className="flex flex-col leading-tight">
+        <div className="flex flex-col leading-tight text-[1.1rem] tracking-widest">
           <p className="font-bold">MISSIONARY</p>
           <p className="font-bold">ACTIVITY</p>
           <p className="font-bold">REPORT</p>
         </div>
         <div className="flex flex-col items-center">
-          <p className="text-sm font-bold">Seventh-day Adventist Church Reform Movement IMS</p>
-          <p className="text-[10px] italic">"Be clear and centered on the one great object of saving souls." 4T 265</p>
+          <p className="text-[1.3em] font-bold tracking-wide">Seventh-day Adventist Church Reform Movement IMS</p>
+          <p className="text-[12px] italic">"Be clear and centered on the one great object of saving souls." 4T 265</p>
         </div>
         <div className="flex items-center">
           <label htmlFor="year" className="mr-1 font-semibold whitespace-nowrap">
@@ -29,14 +28,14 @@ export default function Header({ data, onChange }) {
             name="year"
             value={data.year}
             onChange={handleChange}
-            className="w-16 border-b border-black text-center focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-16 border-b border-black text-center focus:outline-none"
           />
         </div>
       </div>
 
       {/* Row 1: Name of the Field & Approved by */}
       <div className="flex justify-between items-end mt-2">
-        <div className="flex items-center flex-1">
+        <div className="flex items-center">
           <label htmlFor="nameOfTheField" className="mr-1 font-semibold whitespace-nowrap">
             Name of the Field:
           </label>
@@ -46,10 +45,10 @@ export default function Header({ data, onChange }) {
             name="nameOfTheField"
             value={data.nameOfTheField}
             onChange={handleChange}
-            className="flex-1 w-full border-b border-black focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="flex-1 w-fit border-b border-black focus:outline-none"
           />
         </div>
-        <div className="flex items-center flex-1">
+        <div className="flex items-center">
           <label htmlFor="approvedBy" className="mr-1 font-semibold whitespace-nowrap">
             Approved by:
           </label>
@@ -59,7 +58,7 @@ export default function Header({ data, onChange }) {
             name="approvedBy"
             value={data.approvedBy}
             onChange={handleChange}
-            className="flex-1 w-full border-b border-black focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="flex-1 w-fit border-b border-black focus:outline-none"
           />
         </div>
       </div>
@@ -76,7 +75,7 @@ export default function Header({ data, onChange }) {
             name="name"
             value={data.name}
             onChange={handleChange}
-            className="w-32 border-b border-black focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-28 border-b border-black focus:outline-none"
           />
         </div>
         <div className="flex items-center">
@@ -89,7 +88,7 @@ export default function Header({ data, onChange }) {
             name="month"
             value={data.month}
             onChange={handleChange}
-            className="w-24 border-b border-black focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-20 border-b border-black focus:outline-none"
           />
         </div>
         <div className="flex items-center">
@@ -102,7 +101,7 @@ export default function Header({ data, onChange }) {
             name="date"
             value={data.date}
             onChange={handleChange}
-            className="w-24 border-b border-black focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-16 border-b border-black focus:outline-none"
           />
         </div>
         <div className="flex items-center">
@@ -115,7 +114,7 @@ export default function Header({ data, onChange }) {
             name="generalConference"
             value={data.generalConference}
             onChange={handleChange}
-            className="w-24 border-b border-black focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-20 border-b border-black focus:outline-none"
           />
         </div>
       </div>
