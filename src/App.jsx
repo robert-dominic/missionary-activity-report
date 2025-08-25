@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import Header from "./components/Header";
 import ActivityTable from "./components/ActivityTable";
-import Footer from "./components/Footer";
 
 export default function App() {
   // Header state
   const [headerData, setHeaderData] = useState({
-    year: "20_",
+    year: "20",
     nameOfTheField: "",
     approvedBy: "",
     name: "",
@@ -32,21 +31,6 @@ export default function App() {
     },
   ]);
 
-  // Footer state
-  const [footerData, setFooterData] = useState({
-    total: "",
-    publicLecturesGiven: "",
-    soulsStudiedWith: "",
-    signature: "",
-    percentTravel: "",
-    podos: "",
-    available1: "",
-    sick: "",
-    available2: "",
-    vacation: "",
-    available3: "",
-  });
-
   // Update header
   const handleHeaderChange = (name, value) => {
     setHeaderData((prev) => ({ ...prev, [name]: value }));
@@ -61,11 +45,6 @@ export default function App() {
     });
   };
 
-  // Update footer
-  const handleFooterChange = (name, value) => {
-    setFooterData((prev) => ({ ...prev, [name]: value }));
-  };
-
   // Totals calculation
   const totals = rows.reduce(
     (acc, row) => {
@@ -78,10 +57,9 @@ export default function App() {
   totals.totalHrs = totals.totalHrsTravel + totals.totalHrsWork;
 
   return (
-    <div className="p-6 space-y-6">
+    <div className="p-4 space-y-6">
       <Header data={headerData} onChange={handleHeaderChange} />
-      <ActivityTable rows={rows} onChange={handleRowChange} totals={totals} />
-      <Footer data={footerData} onChange={handleFooterChange} totals={totals} />
+      <ActivityTable rows={rows} onChange={handleRowChange} />
     </div>
   );
 }

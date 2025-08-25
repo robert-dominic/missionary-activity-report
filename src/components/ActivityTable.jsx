@@ -1,21 +1,19 @@
 import React from "react";
 
-export default function ActivityTable({ rows, onChange}) {
+export default function ActivityTable({ rows, onChange }) {
   const handleChange = (index, e) => {
     const { name, value } = e.target;
     onChange(index, name, value);
   };
 
-  // Helper function to render a table cell with a controlled input
+  // Helper function for controlled input cells
   const renderInputCell = (index, field) => (
     <td className="p-0 border border-black">
       <input
         type="text"
         name={field}
-        // Use optional chaining with default empty string for robust handling
         value={rows[index]?.[field] || ""}
         onChange={(e) => handleChange(index, e)}
-        // Input styling: full width, no default border/ring
         className="w-full h-full text-center p-1 focus:outline-none focus:ring-0"
       />
     </td>
@@ -24,43 +22,54 @@ export default function ActivityTable({ rows, onChange}) {
   return (
     <div className="overflow-x-auto border border-black font-poppins text-sm">
       <table className="w-full border-collapse">
-        <thead className="bg-[#660066] text-white text-center">
+        {/* ===== Table Head ===== */}
+        <thead className="bg-[#960276] text-white text-center">
           <tr>
             <th rowSpan="2" className="border border-black w-20">
               <div className="flex flex-col h-16 items-center justify-center">
-                <span className="text-xs transform rotate-270 whitespace-nowrap">Date</span>
+                <span className="text-xs transform rotate-270 whitespace-nowrap">
+                  Date
+                </span>
               </div>
             </th>
             <th rowSpan="2" className="p-1 border border-black w-75">
               Place of Activity
             </th>
-            {/* Rotated Headers - Top Row */}
             <th rowSpan="2" className="border border-black w-10">
               <div className="flex flex-col h-16 items-center justify-center">
-                <span className="text-xs transform rotate-270 whitespace-nowrap">Hrs Travel</span>
+                <span className="text-xs transform rotate-270 whitespace-nowrap">
+                  Hrs Travel
+                </span>
               </div>
             </th>
             <th rowSpan="2" className="p-1 border border-black w-10">
               <div className="flex flex-col h-16 items-center justify-center">
-                <span className="text-xs transform rotate-270 whitespace-nowrap">Hrs Work</span>
+                <span className="text-xs transform rotate-270 whitespace-nowrap">
+                  Hrs Work
+                </span>
               </div>
             </th>
             <th className="border border-black w-10">
               <div className="flex flex-col h-20 items-center justify-center">
-                <span className="text-xs transform rotate-270 whitespace-nowrap">Canvassing</span>
+                <span className="text-xs transform rotate-270 whitespace-nowrap">
+                  Canvassing
+                </span>
               </div>
             </th>
             <th className="border border-black w-10">
               <div className="flex flex-col h-20 items-center justify-center">
-                <span className="text-xs transform rotate-270 whitespace-nowrap">Bible Studies</span>
+                <span className="text-xs transform rotate-270 whitespace-nowrap">
+                  Bible Studies
+                </span>
               </div>
             </th>
             <th className="border border-black w-10">
               <div className="flex flex-col h-20 items-center justify-center">
-                <span className="text-xs transform rotate-270 whitespace-nowrap">Visits</span>
+                <span className="text-xs transform rotate-270 whitespace-nowrap">
+                  Visits
+                </span>
               </div>
             </th>
-            
             <th colSpan="1" className="p-1 border border-black w-150">
               Other Activities
               <br />
@@ -70,28 +79,28 @@ export default function ActivityTable({ rows, onChange}) {
             </th>
             <th className="border border-black w-10">
               <div className="flex flex-col h-20 items-center justify-center">
-                <span className="text-xs transform rotate-270 whitespace-nowrap">Car km</span>
+                <span className="text-xs transform rotate-270 whitespace-nowrap">
+                  Car km
+                </span>
               </div>
             </th>
             <th className="border border-black w-10">
               <div className="flex flex-col h-20 items-center justify-center">
-                <span className="text-xs transform rotate-270 whitespace-nowrap">Expenses</span>
+                <span className="text-xs transform rotate-270 whitespace-nowrap">
+                  Expenses
+                </span>
               </div>
             </th>
           </tr>
         </thead>
-        
-        {/* Table Body - Fixed 31 Rows */}
+
+        {/* ===== Table Body ===== */}
         <tbody>
-          {/* Loop 31 times to create the days of the month */}
           {Array.from({ length: 31 }, (_, index) => (
             <tr key={index}>
-              {/* Day column (1-31) */}
               <td className="p-1 border border-black text-center bg-white-100">
                 {index + 1}
               </td>
-              
-              {/* Data Input Cells */}
               {renderInputCell(index, "place")}
               {renderInputCell(index, "hrsTravel")}
               {renderInputCell(index, "hrsWork")}
@@ -104,6 +113,20 @@ export default function ActivityTable({ rows, onChange}) {
             </tr>
           ))}
         </tbody>
+          <tfoot>
+            <tr className="font-bold">
+              <td className="border px-2 py-1 text-center">TOTAL</td>
+              <td className="border px-2 py-1"></td>
+              <td className="border px-2 py-1"></td>
+              <td className="border px-2 py-1"></td>
+              <td className="border px-2 py-1"></td>
+              <td className="border px-2 py-1 bg-white"></td>
+              <td className="border px-2 py-1"></td>
+              <td className="border px-2 py-1"></td>
+              <td className="border px-2 py-1"></td>
+              <td className="border px-2 py-1"></td>
+            </tr>
+          </tfoot>
       </table>
     </div>
   );
