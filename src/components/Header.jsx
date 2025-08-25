@@ -1,5 +1,4 @@
-import React from "react";
-
+// Header Component
 export default function Header({ data, onChange }) {
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -7,7 +6,7 @@ export default function Header({ data, onChange }) {
   };
 
   return (
-    <div className="flex flex-col gap-2 p-4 pb-0 text-sm border border-none font-poppins">
+    <div className="flex flex-col gap-2 p-4 pb-1 text-sm border border-none font-sans">
       <div className="flex justify-between items-start">
         <div className="flex flex-col leading-tight text-[1.1rem] tracking-widest">
           <p className="font-bold">MISSIONARY</p>
